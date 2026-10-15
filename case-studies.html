@@ -31,19 +31,398 @@ All sample records, subtitle dialogue and interface states are illustrative, not
 <section class="section audio" id="localization"><div class="wrap"><div class="heading"><span class="number">02</span><div><p class="eyebrow">Freelance / Acclaro / OneVoice · Audiovisual production</p><h2>Audiovisual Localization<br>&amp; Quality</h2><p>A delivery is more than translated dialogue. My audiovisual experience includes subtitle translation and review, LQA/QC, linguistic and technical requirements, and identifying text within the image.</p></div></div><div class="tool"><div class="toolbar"><div><b>Subtitle review / EN → PT-BR</b><small>Original fictional sample · illustrative editor</small></div><div class="controls"><button class="icon primary" id="video-play" aria-label="Play sample timeline" title="Play sample timeline">▶</button><button class="icon" id="video-reset" aria-label="Reset sample timeline" title="Reset sample timeline">↺</button></div></div><div class="editor"><div class="frame"><img src="assets/about.jpg" alt="Illustrative subtitle workstation, not client footage"><span class="frame-tag">ILLUSTRATIVE FRAME / NOT CLIENT FOOTAGE</span><button class="on-screen" id="screen" aria-pressed="false">On-screen text: REVIEW</button><p class="caption" id="caption"></p></div><div class="qc"><h3 id="cue-title"></h3><p class="source" id="source"></p><div class="segments" role="group" aria-label="Subtitle version"><button data-version="before" aria-pressed="true">Before</button><button data-version="after" aria-pressed="false">After QC</button></div><div id="qc-rows"></div><p class="note" id="qc-note" aria-live="polite"></p></div></div><div class="timeline"><div class="time-meta"><span id="timecode"></span><span>Subtitle track · PT-BR</span></div><div class="track"><button class="cue" data-cue="0" aria-pressed="true">01 · Context<br>00:00 → 00:04</button><button class="cue" data-cue="1" aria-pressed="false">02 · Terminology<br>00:04 → 00:08</button><button class="cue" data-cue="2" aria-pressed="false">03 · Timing<br>00:08 → 00:12</button><span class="playhead" id="playhead"></span></div><input type="range" class="scrubber" min="0" max="120" value="0" aria-label="Sample timeline position"></div><p class="sample-note">Dialogue, timings and QC findings are fictional. These examples show review decisions, not an automated compliance assessment or an actual client file.</p></div><div class="narrative"><div><h3>Language in context</h3><p>Preserving meaning requires reviewing linguistic choices against the material, not simply replacing words in isolation.</p></div><div><h3>Beyond the subtitle</h3><p>Text in the image is part of the audiovisual asset too. I identify on-screen information alongside subtitle and technical review.</p></div><div><h3>The next handoff</h3><p>Familiarity with subtitle files, review feedback and production requirements helps me anticipate issues that could compromise delivery.</p></div></div></div></section>
 <section class="section scale" id="scale"><div class="wrap"><div class="heading"><span class="number">03</span><div><p class="eyebrow">TeamWorker / Claro · Knowledge &amp; editorial governance</p><h2>Content Operations<br>at Scale</h2><p>One clear delivery is not enough at scale. Consistent terminology, documented editorial standards and visible review status help many contributors work within one production process.</p></div></div><div class="metrics"><div class="metric"><b>15K+</b><p>Corporate assets migrated to Salesforce Knowledge</p><small>Migration scope · not personal authorship</small></div><div class="metric"><b>2,700+</b><p>Terms in the controlled vocabulary</p><small>Terminology &amp; standardization scope</small></div><div class="metric"><b>15+</b><p>Writers and editors involved</p><small>Collaborative production scope</small></div></div><div class="tool"><div class="toolbar"><div><b>Content operations / Review queue</b><small>Illustrative dashboard · 5 fictional records, unrelated to the metrics above</small></div><button class="icon" id="queue-reset" aria-label="Reset sample records" title="Reset sample records">↺</button></div><div class="queue-controls"><div class="segments" role="group" aria-label="Filter content status"><button data-filter="all" aria-pressed="true">All</button><button data-filter="In review" aria-pressed="false">In review</button><button data-filter="Revision" aria-pressed="false">Revision</button><button data-filter="Approved" aria-pressed="false">Approved</button></div><input type="search" id="search" aria-label="Search sample content" placeholder="Search content…"></div><div class="table-wrap"><table><thead><tr><th>CONTENT</th><th>TYPE</th><th>OWNER</th><th>STATUS</th><th aria-label="Record details"></th></tr></thead><tbody id="records"></tbody></table></div><p class="empty" id="empty" hidden>No sample records match this selection.</p><p class="sample-note" id="count" role="status"></p></div><div class="governance"><div><h3>A clear editorial review loop</h3><p>My work included checking content, explaining corrections, returning items for revision and moving them forward after approval. Editorial standards and controlled terminology supported consistency.</p><details><summary>Illustrative terminology record / knowledge base</summary><div class="term"><b>Preferred term: base de conhecimento</b><p>Variants: central de ajuda, repositório de respostas.<br>Sample definition: a structured collection of approved support articles.<br>Use: maintain the preferred term in article titles and navigation. Fictional example, not an extract from Claro’s vocabulary.</p></div></details></div><div><h3>Organization, not just volume</h3><p>The migration and vocabulary figures describe the scope of the work. They do not imply that I personally created every asset or achieved an unmeasured performance gain. The sample queue makes ownership, feedback and approval dependencies visible.</p></div></div></div></section><section class="closing"><div class="wrap"><div><h2>Let’s connect the dots.</h2><p>Language, people and a clear path to delivery.</p></div><a class="btn" href="index.html#contact">Get in touch <span aria-hidden="true">→</span></a></div></section></main><footer><div class="wrap"><span>© 2026 Ariane Lesnyak · Portfolio / Case Studies</span><a href="index.html">← Back to the portfolio</a></div></footer><dialog id="record-dialog" aria-labelledby="record-title"><div class="toolbar"><small>Illustrative content record</small><button class="icon" id="close" aria-label="Close content record" title="Close content record">×</button></div><div class="dialog-body"><h3 id="record-title"></h3><span class="status" id="record-status"></span><p class="source" id="record-meta"></p><p class="feedback" id="feedback"></p><div class="actions"><button id="request-revision">Request revision</button><button id="correct">Submit correction</button><button id="approve">Approve</button></div><p class="note" id="notice" role="status"></p></div></dialog>
 <script>
-const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-const menu=$('.menu');function closeMenu(){menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Open navigation');menu.textContent='☰';$('#nav-links').classList.remove('open')}menu.onclick=()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Close navigation':'Open navigation');menu.textContent=open?'×':'☰';$('#nav-links').classList.toggle('open',open)};document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
-const stages=[["Brief received", "Clarify the request", "Receive the request and establish the deliverable, audience and purpose.", "Clear briefing and expected output", "Requester"], ["Requirements checked", "Make the brief actionable", "Clarify scope, references, editorial requirements and deadline before assigning production.", "Requirements and source materials confirmed", "Coordinator"], ["Resource assigned", "Match people to the work", "Distribute demands among writers, answer questions and redistribute work when availability changes.", "Owner and availability confirmed", "Coordinator + writer"], ["Production in progress", "Keep work moving", "Follow up on deadlines and progress. Resolve questions and flag blockers before the next handoff.", "Progress, blockers and deadline reviewed", "Writer"], ["Review and revision", "Close the feedback loop", "Check the delivery, explain corrections and return work for revision when criteria are not met.", "Editorial consistency and requested changes", "Editor + writer"], ["Approved and delivered", "Complete the handoff", "Move content forward after approval, with the final version and a clear delivery status.", "Approval and final version confirmed", "Coordinator"]];let step=0,timer=null,returned=false,returning=false;
-function stop(){clearTimeout(timer);timer=null;$('#play').textContent='▶';$('#play').setAttribute('aria-label','Play workflow');$('#play').title='Play workflow'}
-function show(){const s=stages[step];$$('.stage').forEach((el,i)=>{el.setAttribute('aria-pressed',String(i===step));el.classList.toggle('done',i<step);el.querySelector('small').textContent=i<step?'Complete':i===step?(returning?'Revision required':'Current'):'Pending'});$('#stage-title').textContent=returning?'Return for correction':s[1];$('#stage-text').textContent=returning?'A sample terminology issue is flagged. Specific feedback goes back to the writer, and approval remains blocked until the correction is reviewed.':s[2];$('#checkpoint').textContent=returning?'Requested correction and re-review before approval':s[3];$('#flow-status').textContent=returning?'Revision required':s[0];$('#flow-status').classList.toggle('warning',returning);$('#owner').textContent='Owner: '+s[4];$('#progress').value=step+1;$('#prev').disabled=step===0;$('#next').disabled=step===5;$('#risk').hidden=!$('#deadline').checked}
-function advance(){if(step===4&&$('#revision').checked&&!returned){returned=true;returning=true}else{returning=false;step=Math.min(5,step+1)}show()}
-$$('.stage').forEach(el=>el.onclick=()=>{stop();step=Number(el.dataset.stage);returning=false;show()});$('#next').onclick=()=>{stop();advance()};$('#prev').onclick=()=>{stop();step=Math.max(0,step-1);returning=false;show()};$('#reset').onclick=()=>{stop();step=0;returned=false;returning=false;show()};$('#play').onclick=()=>{if(timer){stop();return}if(step===5){step=0;returned=false;returning=false;show()}$('#play').textContent='Ⅱ';$('#play').setAttribute('aria-label','Pause workflow');$('#play').title='Pause workflow';const tick=()=>{advance();if(step===5)stop();else timer=setTimeout(tick,1800)};timer=setTimeout(tick,1800)};$('#deadline').onchange=show;$('#revision').onchange=()=>{returned=false;returning=false;show()};show();
-const cues=[{title:'Context',source:'“Let’s get everyone on the same page.”',before:'Vamos colocar todos na mesma página.',after:'Vamos alinhar a equipe.',issue:'Literal wording',fix:'Contextual adaptation',note:'The revision favors the intended meaning over a literal rendering of the idiom.'},{title:'Terminology',source:'“Open the knowledge base.”',before:'Abra o repositório de respostas.',after:'Abra a base de conhecimento.',issue:'Term variation',fix:'Preferred term used',note:'This sample uses “base de conhecimento” as the preferred term. The decision depends on the project reference, not a universal rule.'},{title:'Timing',source:'“The final file is ready for review.”',before:'O arquivo final está pronto para revisão.',after:'O arquivo final está pronto para revisão.',issue:'Cue ends at 00:09',fix:'Cue ends at 00:12',note:'The fictional first pass ends before the spoken line finishes. Real cue timing must be checked against audio, reading time and shot context.'}];let cue=0,version='before',position=0,videoTimer=null,screen=false;
-function showCue(){const c=cues[cue],after=version==='after';$('#cue-title').textContent='Cue 0'+(cue+1)+' / '+c.title;$('#source').textContent='Source: '+c.source;$('#caption').textContent=cue===2&&!after&&position>=90?'':c[version];$$('.cue').forEach(el=>el.setAttribute('aria-pressed',String(Number(el.dataset.cue)===cue)));$$('[data-version]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.version===version)));const rows=[['Review focus',after?c.fix:c.issue],['Timing',cue===2?(after?'00:08 → 00:12':'00:08 → 00:09'):(cue===0?'00:00 → 00:04':'00:04 → 00:08')],['Terminology',cue===1?(after?'Consistent':'Needs alignment'):'Context review'],['Formatting','Single-line sample']];$('#qc-rows').replaceChildren(...rows.map(([a,b])=>{const row=document.createElement('div'),label=document.createElement('span'),value=document.createElement('b');row.className='qc-row';label.textContent=a;value.textContent=b;row.append(label,value);return row}));$('#qc-note').textContent=screen?'On-screen text is a separate review item. “REVIEW” is visible in the image and should be checked for localization needs; it is not part of the spoken subtitle.':c.note;$('#timecode').textContent='00:'+String(Math.floor(position/10)).padStart(2,'0')+'.'+position%10+' / 00:12.0';$('#playhead').style.left=Math.min(99.8,position/120*100)+'%';$('.scrubber').value=position}
-function stopVideo(){clearInterval(videoTimer);videoTimer=null;$('#video-play').textContent='▶';$('#video-play').setAttribute('aria-label','Play sample timeline');$('#video-play').title='Play sample timeline'}
-$$('.cue').forEach(el=>el.onclick=()=>{stopVideo();cue=Number(el.dataset.cue);position=cue*40;showCue()});$$('[data-version]').forEach(el=>el.onclick=()=>{version=el.dataset.version;showCue()});$('.scrubber').oninput=e=>{stopVideo();position=Number(e.target.value);cue=Math.min(2,Math.floor(position/40));showCue()};$('#video-play').onclick=()=>{if(videoTimer){stopVideo();return}if(position>=120)position=0;$('#video-play').textContent='Ⅱ';$('#video-play').setAttribute('aria-label','Pause sample timeline');$('#video-play').title='Pause sample timeline';videoTimer=setInterval(()=>{position++;cue=Math.min(2,Math.floor(position/40));showCue();if(position>=120)stopVideo()},100)};$('#video-reset').onclick=()=>{stopVideo();cue=0;position=0;version='before';screen=false;$('#screen').setAttribute('aria-pressed','false');showCue()};$('#screen').onclick=()=>{screen=!screen;$('#screen').setAttribute('aria-pressed',String(screen));showCue()};showCue();
-const originals=[{id:1,title:'Knowledge base introduction',type:'Support article',owner:'Writer A',status:'In review',corrected:false,feedback:'Replace “repositório de respostas” with “base de conhecimento” to match the sample editorial reference.'},{id:2,title:'Account access guide',type:'How-to',owner:'Writer B',status:'Revision',corrected:false,feedback:'Add the missing access prerequisites before the numbered steps.'},{id:3,title:'Service request checklist',type:'Checklist',owner:'Editor A',status:'Approved',corrected:true,feedback:'Sample terminology, structure and fields checked.'},{id:4,title:'Contact details update',type:'Support article',owner:'Writer C',status:'In review',corrected:true,feedback:'Sample correction submitted; required fields and terminology are aligned.'},{id:5,title:'Article naming standard',type:'Editorial guide',owner:'Editor B',status:'Revision',corrected:false,feedback:'Align the titles with the sample naming convention before approval.'}];let records=structuredClone(originals),filter='all',selected=null;const dialog=$('#record-dialog');
-function render(){const q=$('#search').value.trim().toLowerCase(),shown=records.filter(r=>(filter==='all'||r.status===filter)&&r.title.toLowerCase().includes(q));$('#records').replaceChildren(...shown.map(r=>{const tr=document.createElement('tr');[r.title,r.type,r.owner].forEach(v=>{const td=document.createElement('td');td.textContent=v;tr.append(td)});const td=document.createElement('td'),s=document.createElement('span');s.className='status'+(r.status==='Revision'?' warning':'');s.textContent=r.status;td.append(s);tr.append(td);const action=document.createElement('td'),button=document.createElement('button');button.className='open-record';button.textContent='↗';button.setAttribute('aria-label','Open '+r.title);button.title='Open '+r.title;button.onclick=()=>{selected=r.id;showRecord();dialog.showModal()};action.append(button);tr.append(action);return tr}));$('#empty').hidden=shown.length>0;$('#count').textContent=shown.length+' of 5 sample records shown · no live project data'}
-function current(){return records.find(r=>r.id===selected)}function showRecord(){const r=current();if(!r)return;$('#record-title').textContent=r.title;$('#record-status').textContent=r.status;$('#record-status').className='status'+(r.status==='Revision'?' warning':'');$('#record-meta').textContent=r.type+' / Owner: '+r.owner;$('#feedback').textContent=r.feedback;$('#request-revision').disabled=r.status!=='In review';$('#correct').disabled=r.status!=='Revision';$('#approve').disabled=r.status!=='In review'||!r.corrected;$('#notice').textContent=r.status==='Approved'?'Approved after review.':r.status==='Revision'?'Approval is blocked until corrections are submitted and reviewed.':!r.corrected?'Outstanding feedback: request revision before approval.':'Correction submitted. Final review is ready.'}
-$('#request-revision').onclick=()=>{const r=current();if(!r||r.status!=='In review')return;r.status='Revision';r.corrected=false;showRecord();render()};$('#correct').onclick=()=>{const r=current();if(!r||r.status!=='Revision')return;r.status='In review';r.corrected=true;r.feedback='Requested sample correction applied. The item returns to review before final approval.';showRecord();render()};$('#approve').onclick=()=>{const r=current();if(!r||r.status!=='In review'||!r.corrected)return;r.status='Approved';r.feedback='Sample correction re-reviewed and accepted. The approved version is ready for handoff.';showRecord();render()};$('#close').onclick=()=>dialog.close();dialog.addEventListener('click',e=>{if(e.target===dialog){const b=dialog.getBoundingClientRect();if(e.clientX<b.left||e.clientX>b.right||e.clientY<b.top||e.clientY>b.bottom)dialog.close()}});$$('[data-filter]').forEach(el=>el.onclick=()=>{filter=el.dataset.filter;$$('[data-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b===el)));render()});$('#search').oninput=render;$('#queue-reset').onclick=()=>{records=structuredClone(originals);render()};render();document.addEventListener('visibilitychange',()=>{if(document.hidden){stop();stopVideo()}});
+/* ============================================================
+   UTILITÁRIOS
+   ============================================================ */
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+
+/* ============================================================
+   MENU MOBILE
+   ============================================================ */
+const menu = $('.menu');
+function closeMenu() {
+  menu.setAttribute('aria-expanded', 'false');
+  menu.setAttribute('aria-label', 'Open navigation');
+  menu.textContent = '☰';
+  $('#nav-links').classList.remove('open');
+}
+menu.onclick = () => {
+  const open = menu.getAttribute('aria-expanded') !== 'true';
+  menu.setAttribute('aria-expanded', String(open));
+  menu.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+  menu.textContent = open ? '×' : '☰';
+  $('#nav-links').classList.toggle('open', open);
+};
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
+/* ============================================================
+   CASO 01 — WORKFLOW DE COORDENAÇÃO
+   ============================================================ */
+const stages = [
+  ["Brief received", "Clarify the request", "Receive the request and establish the deliverable, audience and purpose.", "Clear briefing and expected output", "Requester"],
+  ["Requirements checked", "Make the brief actionable", "Clarify scope, references, editorial requirements and deadline before assigning production.", "Requirements and source materials confirmed", "Coordinator"],
+  ["Resource assigned", "Match people to the work", "Distribute demands among writers, answer questions and redistribute work when availability changes.", "Owner and availability confirmed", "Coordinator + writer"],
+  ["Production in progress", "Keep work moving", "Follow up on deadlines and progress. Resolve questions and flag blockers before the next handoff.", "Progress, blockers and deadline reviewed", "Writer"],
+  ["Review and revision", "Close the feedback loop", "Check the delivery, explain corrections and return work for revision when criteria are not met.", "Editorial consistency and requested changes", "Editor + writer"],
+  ["Approved and delivered", "Complete the handoff", "Move content forward after approval, with the final version and a clear delivery status.", "Approval and final version confirmed", "Coordinator"]
+];
+
+let step = 0, timer = null, returned = false, returning = false;
+
+function stop() {
+  clearTimeout(timer);
+  timer = null;
+  $('#play').textContent = '▶';
+  $('#play').setAttribute('aria-label', 'Play workflow');
+  $('#play').title = 'Play workflow';
+}
+
+function show() {
+  const s = stages[step];
+  $$('.stage').forEach((el, i) => {
+    el.setAttribute('aria-pressed', String(i === step));
+    el.classList.toggle('done', i < step);
+    el.querySelector('small').textContent =
+      i < step ? 'Complete' : i === step ? (returning ? 'Revision required' : 'Current') : 'Pending';
+  });
+  $('#stage-title').textContent = returning ? 'Return for correction' : s[1];
+  $('#stage-text').textContent = returning
+    ? 'A sample terminology issue is flagged. Specific feedback goes back to the writer, and approval remains blocked until the correction is reviewed.'
+    : s[2];
+  $('#checkpoint').textContent = returning ? 'Requested correction and re-review before approval' : s[3];
+  $('#flow-status').textContent = returning ? 'Revision required' : s[0];
+  $('#flow-status').classList.toggle('warning', returning);
+  $('#owner').textContent = 'Owner: ' + s[4];
+  $('#progress').value = step + 1;
+  $('#prev').disabled = step === 0;
+  $('#next').disabled = step === 5;
+  $('#risk').hidden = !$('#deadline').checked;
+}
+
+function advance() {
+  if (step === 4 && $('#revision').checked && !returned) {
+    returned = true;
+    returning = true;
+  } else {
+    returning = false;
+    step = Math.min(5, step + 1);
+  }
+  show();
+}
+
+$$('.stage').forEach(el => el.onclick = () => {
+  stop();
+  step = Number(el.dataset.stage);
+  returning = false;
+  show();
+});
+$('#next').onclick = () => { stop(); advance(); };
+$('#prev').onclick = () => { stop(); step = Math.max(0, step - 1); returning = false; show(); };
+$('#reset').onclick = () => { stop(); step = 0; returned = false; returning = false; show(); };
+
+$('#play').onclick = () => {
+  if (timer) { stop(); return; }
+  if (step === 5) { step = 0; returned = false; returning = false; show(); }
+  $('#play').textContent = 'Ⅱ';
+  $('#play').setAttribute('aria-label', 'Pause workflow');
+  $('#play').title = 'Pause workflow';
+  const tick = () => {
+    advance();
+    if (step === 5) stop();
+    else timer = setTimeout(tick, 1800);
+  };
+  timer = setTimeout(tick, 1800);
+};
+
+$('#deadline').onchange = show;
+$('#revision').onchange = () => { returned = false; returning = false; show(); };
+
+show();
+
+/* ============================================================
+   CASO 02 — AUDIOVISUAL LOCALIZATION
+   ============================================================ */
+const cues = [
+  {
+    title: 'Context',
+    source: '"Let\u2019s get everyone on the same page."',
+    before: 'Vamos colocar todos na mesma p\u00e1gina.',
+    after: 'Vamos alinhar a equipe.',
+    issue: 'Literal wording',
+    fix: 'Contextual adaptation',
+    note: 'The revision favors the intended meaning over a literal rendering of the idiom.'
+  },
+  {
+    title: 'Terminology',
+    source: '"Open the knowledge base."',
+    before: 'Abra o reposit\u00f3rio de respostas.',
+    after: 'Abra a base de conhecimento.',
+    issue: 'Term variation',
+    fix: 'Preferred term used',
+    note: 'This sample uses \u201cbase de conhecimento\u201d as the preferred term. The decision depends on the project reference, not a universal rule.'
+  },
+  {
+    title: 'Timing',
+    source: '"The final file is ready for review."',
+    before: 'O arquivo final est\u00e1 pronto para revis\u00e3o.',
+    after: 'O arquivo final est\u00e1 pronto para revis\u00e3o.',
+    issue: 'Cue ends at 00:09',
+    fix: 'Cue ends at 00:12',
+    note: 'The fictional first pass ends before the spoken line finishes. Real cue timing must be checked against audio, reading time and shot context.'
+  }
+];
+
+let cue = 0;
+let version = 'before';
+let position = 0;
+let videoTimer = null;
+let screenOn = false;
+
+function showCue() {
+  const c = cues[cue];
+  const after = version === 'after';
+
+  $('#cue-title').textContent = 'Cue 0' + (cue + 1) + ' / ' + c.title;
+  $('#source').textContent = 'Source: ' + c.source;
+  $('#caption').textContent = c[version];
+
+  $$('.cue').forEach(el => {
+    el.setAttribute('aria-pressed', String(Number(el.dataset.cue) === cue));
+  });
+
+  $$('[data-version]').forEach(el => {
+    el.setAttribute('aria-pressed', String(el.dataset.version === version));
+  });
+
+  const rows = [
+    ['Review focus', after ? c.fix : c.issue],
+    ['Timing', cue === 2
+      ? (after ? '00:08 → 00:12' : '00:08 → 00:09')
+      : (cue === 0 ? '00:00 → 00:04' : '00:04 → 00:08')],
+    ['Terminology', cue === 1
+      ? (after ? 'Consistent' : 'Needs alignment')
+      : 'Context review'],
+    ['Formatting', 'Single-line sample']
+  ];
+
+  $('#qc-rows').replaceChildren(...rows.map(([a, b]) => {
+    const row = document.createElement('div');
+    const label = document.createElement('span');
+    const value = document.createElement('b');
+    row.className = 'qc-row';
+    label.textContent = a;
+    value.textContent = b;
+    row.append(label, value);
+    return row;
+  }));
+
+  $('#qc-note').textContent = screenOn
+    ? 'On-screen text is a separate review item. \u201cREVIEW\u201d is visible in the image and should be checked for localization needs; it is not part of the spoken subtitle.'
+    : c.note;
+
+  $('#timecode').textContent =
+    '00:' + String(Math.floor(position / 10)).padStart(2, '0') + '.' + (position % 10) + ' / 00:12.0';
+  $('#playhead').style.left = Math.min(99.8, position / 120 * 100) + '%';
+  $('.scrubber').value = position;
+}
+
+function stopVideo() {
+  clearInterval(videoTimer);
+  videoTimer = null;
+  $('#video-play').textContent = '▶';
+  $('#video-play').setAttribute('aria-label', 'Play sample timeline');
+  $('#video-play').title = 'Play sample timeline';
+}
+
+$$('.cue').forEach(el => el.onclick = () => {
+  stopVideo();
+  cue = Number(el.dataset.cue);
+  position = cue * 40;
+  showCue();
+});
+
+$$('[data-version]').forEach(el => el.onclick = () => {
+  version = el.dataset.version;
+  showCue();
+});
+
+$('.scrubber').oninput = e => {
+  stopVideo();
+  position = Number(e.target.value);
+  cue = Math.min(2, Math.floor(position / 40));
+  showCue();
+};
+
+$('#video-play').onclick = () => {
+  if (videoTimer) { stopVideo(); return; }
+  if (position >= 120) position = 0;
+  $('#video-play').textContent = 'Ⅱ';
+  $('#video-play').setAttribute('aria-label', 'Pause sample timeline');
+  $('#video-play').title = 'Pause sample timeline';
+  videoTimer = setInterval(() => {
+    position++;
+    cue = Math.min(2, Math.floor(position / 40));
+    showCue();
+    if (position >= 120) stopVideo();
+  }, 100);
+};
+
+$('#video-reset').onclick = () => {
+  stopVideo();
+  cue = 0;
+  position = 0;
+  version = 'before';
+  screenOn = false;
+  $('#screen').setAttribute('aria-pressed', 'false');
+  showCue();
+};
+
+$('#screen').onclick = () => {
+  screenOn = !screenOn;
+  $('#screen').setAttribute('aria-pressed', String(screenOn));
+  showCue();
+};
+
+showCue();
+
+/* ============================================================
+   CASO 03 — REVIEW QUEUE / CONTENT OPERATIONS
+   ============================================================ */
+const originals = [
+  { id: 1, title: 'Knowledge base introduction', type: 'Support article', owner: 'Writer A', status: 'In review', corrected: false, feedback: 'Replace \u201creposit\u00f3rio de respostas\u201d with \u201cbase de conhecimento\u201d to match the sample editorial reference.' },
+  { id: 2, title: 'Account access guide', type: 'How-to', owner: 'Writer B', status: 'Revision', corrected: false, feedback: 'Add the missing access prerequisites before the numbered steps.' },
+  { id: 3, title: 'Service request checklist', type: 'Checklist', owner: 'Editor A', status: 'Approved', corrected: true, feedback: 'Sample terminology, structure and fields checked.' },
+  { id: 4, title: 'Contact details update', type: 'Support article', owner: 'Writer C', status: 'In review', corrected: true, feedback: 'Sample correction submitted; required fields and terminology are aligned.' },
+  { id: 5, title: 'Article naming standard', type: 'Editorial guide', owner: 'Editor B', status: 'Revision', corrected: false, feedback: 'Align the titles with the sample naming convention before approval.' }
+];
+
+let records = structuredClone(originals);
+let filter = 'all';
+let selected = null;
+const dialog = $('#record-dialog');
+
+function render() {
+  const q = $('#search').value.trim().toLowerCase();
+  const shown = records.filter(r =>
+    (filter === 'all' || r.status === filter) &&
+    r.title.toLowerCase().includes(q)
+  );
+
+  $('#records').replaceChildren(...shown.map(r => {
+    const tr = document.createElement('tr');
+    [r.title, r.type, r.owner].forEach(v => {
+      const td = document.createElement('td');
+      td.textContent = v;
+      tr.append(td);
+    });
+    const td = document.createElement('td');
+    const s = document.createElement('span');
+    s.className = 'status' + (r.status === 'Revision' ? ' warning' : '');
+    s.textContent = r.status;
+    td.append(s);
+    tr.append(td);
+    const action = document.createElement('td');
+    const button = document.createElement('button');
+    button.className = 'open-record';
+    button.textContent = '↗';
+    button.setAttribute('aria-label', 'Open ' + r.title);
+    button.title = 'Open ' + r.title;
+    button.onclick = () => {
+      selected = r.id;
+      showRecord();
+      dialog.showModal();
+    };
+    action.append(button);
+    tr.append(action);
+    return tr;
+  }));
+
+  $('#empty').hidden = shown.length > 0;
+  $('#count').textContent = shown.length + ' of 5 sample records shown · no live project data';
+}
+
+function current() {
+  return records.find(r => r.id === selected);
+}
+
+function showRecord() {
+  const r = current();
+  if (!r) return;
+  $('#record-title').textContent = r.title;
+  $('#record-status').textContent = r.status;
+  $('#record-status').className = 'status' + (r.status === 'Revision' ? ' warning' : '');
+  $('#record-meta').textContent = r.type + ' / Owner: ' + r.owner;
+  $('#feedback').textContent = r.feedback;
+  $('#request-revision').disabled = r.status !== 'In review';
+  $('#correct').disabled = r.status !== 'Revision';
+  $('#approve').disabled = r.status !== 'In review' || !r.corrected;
+  $('#notice').textContent =
+    r.status === 'Approved' ? 'Approved after review.' :
+    r.status === 'Revision' ? 'Approval is blocked until corrections are submitted and reviewed.' :
+    !r.corrected ? 'Outstanding feedback: request revision before approval.' :
+    'Correction submitted. Final review is ready.';
+}
+
+$('#request-revision').onclick = () => {
+  const r = current();
+  if (!r || r.status !== 'In review') return;
+  r.status = 'Revision';
+  r.corrected = false;
+  showRecord();
+  render();
+};
+
+$('#correct').onclick = () => {
+  const r = current();
+  if (!r || r.status !== 'Revision') return;
+  r.status = 'In review';
+  r.corrected = true;
+  r.feedback = 'Requested sample correction applied. The item returns to review before final approval.';
+  showRecord();
+  render();
+};
+
+$('#approve').onclick = () => {
+  const r = current();
+  if (!r || r.status !== 'In review' || !r.corrected) return;
+  r.status = 'Approved';
+  r.feedback = 'Sample correction re-reviewed and accepted. The approved version is ready for handoff.';
+  showRecord();
+  render();
+};
+
+$('#close').onclick = () => dialog.close();
+
+dialog.addEventListener('click', e => {
+  if (e.target === dialog) {
+    const b = dialog.getBoundingClientRect();
+    if (e.clientX < b.left || e.clientX > b.right || e.clientY < b.top || e.clientY > b.bottom) dialog.close();
+  }
+});
+
+$$('[data-filter]').forEach(el => el.onclick = () => {
+  filter = el.dataset.filter;
+  $$('[data-filter]').forEach(b => b.setAttribute('aria-pressed', String(b === el)));
+  render();
+});
+
+$('#search').oninput = render;
+
+$('#queue-reset').onclick = () => {
+  records = structuredClone(originals);
+  render();
+};
+
+render();
+
+/* ============================================================
+   PAUSA AUTOMÁTICA AO SAIR DA ABA
+   ============================================================ */
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    stop();
+    stopVideo();
+  }
+});
 </script></body></html>
