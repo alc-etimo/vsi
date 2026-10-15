@@ -53,7 +53,7 @@ section{position:relative}
 .nav{position:absolute;top:0;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:32px 5vw}
 /* >>> LOGO: coloque seu arquivo em assets/logo.png <<< */
 .logo{height:44px;min-width:120px;display:flex;align-items:center}
-.logo img{height:100%;width:auto;}
+.logo img{height:100%;width:auto;filter: grayscale(100%);}
 .logo .ph{border:1.5px dashed rgba(255,255,255,.1);padding:8px 14px;font:12px var(--f-bold);letter-spacing:2px;color:#fff}
 .nav ul{list-style:none;display:flex;gap:34px}
 .nav a{font-family:var(--f-black);font-weight:900;font-size:18px;line-height:22.7px;letter-spacing:0;color:#fff;cursor:pointer;
@@ -80,7 +80,7 @@ section{position:relative}
 .split .col-white{background:#fff;position:relative}
 .split .txt{margin-top:28px;max-width:520px}
 .split .txt p+p{margin-top:16px}
-.about-photo{position:absolute;top:50%;left:-12%;width:100%;transform:translateY(-50%);box-shadow:0 30px 60px rgba(35,14,44,.25)}
+.about-photo{position:absolute;top:35%;left:-5%;width:100%;transform:translateY(-50%);box-shadow:0 30px 60px rgba(35,14,44,.25)}
 .about-photo img{width:100%;aspect-ratio:4/3;object-fit:cover}
 
 /* ---------- SERVICES ---------- */
@@ -259,6 +259,7 @@ footer .copy{font-size:13px;opacity:.7;margin-top:14px;max-width:520px}
         <div class="slide"><div class="partner"><img src="assets/partners/tem-dende.png" alt="Tem Dendê"></div></div>
       </div>
     </div>
+    <button class="circ" id="nextP" aria-label="Next">  <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
   </div>
 </section>
 
